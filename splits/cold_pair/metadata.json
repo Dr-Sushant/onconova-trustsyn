@@ -1,0 +1,12 @@
+{
+    "split": "cold_pair",
+    "master_rows": 299823,
+    "unique_pairs": 5242,
+    "train_pairs": 3669,
+    "valid_pairs": 786,
+    "test_pairs": 787,
+    "train_rows": 209845,
+    "valid_rows": 45017,
+    "test_rows": 44961,
+    "random_state": 42
+}

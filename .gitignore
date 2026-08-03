@@ -216,3 +216,30 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ==================================================
+# TrustSyn project
+# ==================================================
+
+# LibreOffice lock files
+.~lock*
+~$*
+
+# Trained models
+models/**/*.pkl
+
+# Generated experiment outputs
+results/
+
+# Temporary backups
+*_backup.csv
+
+# VS Code
+.vscode/
+
+# Local datasets created during experiments
+data/processed/master/*.bak
+
+# macOS / Windows
+.DS_Store
+Thumbs.db

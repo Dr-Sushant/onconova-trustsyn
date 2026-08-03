@@ -1,0 +1,11 @@
+{
+    "split_type": "cold_cell",
+    "seed": 42,
+    "total_cell_lines": 59,
+    "train_cell_lines": 41,
+    "valid_cell_lines": 8,
+    "test_cell_lines": 10,
+    "train_rows": 207645,
+    "valid_rows": 41034,
+    "test_rows": 51144
+}

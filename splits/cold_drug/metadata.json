@@ -1,0 +1,15 @@
+{
+    "split_type": "cold_drug",
+    "seed": 42,
+    "master_dataset": "nci_almanac_with_cellminer_ids.csv",
+    "drug_lookup": "drug_features_final.csv",
+    "total_drugs": 104,
+    "total_cell_lines": 59,
+    "train_drugs": 72,
+    "valid_drugs": 15,
+    "test_drugs": 17,
+    "train_rows": 138539,
+    "valid_rows": 5859,
+    "test_rows": 7724,
+    "discarded_rows": 147701
+}

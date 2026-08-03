@@ -1,0 +1,105 @@
+drug_id,NSC,Drug_Name
+1,740,Methotrexate
+2,750,Busulfan
+3,752,Thioguanine
+4,755,Mercaptopurine
+5,762,Mechlorethamine hydrochloride
+6,1390,Allopurinol
+7,3053,Dactinomycin
+8,3088,Chlorambucil
+9,6396,Thiotepa
+10,8806,Melphalan
+11,9706,Triethylenemelamine
+12,13875,Altretamine
+13,14229,Quinacrine hydrochloride
+14,18509,Aminolevulinic acid hydrochloride
+15,19893,Fluorouracil
+16,24559,Plicamycin
+17,25154,Pipobroman
+18,26271,Cyclophosphamide
+19,26980,Mitomycin
+20,27640,Floxuridine
+21,32065,Hydroxyurea
+22,34462,Uracil mustard
+23,38721,Mitotane
+24,45388,Dacarbazine
+25,45923,Methoxsalen
+26,49842,Vinblastine sulfate
+27,63878,Cytarabine hydrochloride
+28,66847,Thalidomide
+29,67574,Vincristine sulfate
+30,71423,Megestrol acetate
+31,77213,Procarbazine hydrochloride
+32,79037,Lomustine
+33,82151,Daunorubicin hydrochloride
+34,85998,Streptozocin
+35,92859,Arsenic trioxide
+36,102816,Azacitidine
+37,105014,Cladribine
+38,109724,Ifosfamide
+39,119875,Cisplatin
+40,122758,Tretinoin
+41,122819,Teniposide
+42,123127,Doxorubicin hydrochloride
+43,125066,Bleomycin sulfate
+44,125973,Paclitaxel
+45,127716,Decitabine
+46,138783,bendamustine hydrochloride
+47,141540,Etoposide
+48,169780,Dexrazoxane
+49,180973,Tamoxifen citrate
+50,218321,Pentostatin
+51,226080,Sirolimus
+52,241240,Carboplatin
+53,246131,Valrubicin
+54,266046,Oxaliplatin
+55,279836,Mitoxantrone
+56,296961,Amifostine
+57,362856,Temozolomide
+58,369100,Imiquimod
+59,409962,Carmustine
+60,606869,Clofarabine
+61,608210,Vinorelbine tartrate
+62,609699,Topotecan hydrochloride
+63,613327,Gemcitabine hydrochloride
+64,628503,Docetaxel
+65,681239,Bortezomib
+66,686673,Nelarabine
+67,698037,Pemetrexed Disodium 
+68,701852,Vorinostat
+69,702294,Estramustine phosphate sodium
+70,712807,Capecitabine
+71,713563,Exemestane
+72,715055,Gefitinib
+73,718781,Erlotinib hydrochloride
+74,719276,Fulvestrant
+75,719345,Letrozole
+76,719627,Celecoxib
+77,721517,Zoledronic acid
+78,732517,Dasatinib
+79,733504,Everolimus
+80,743414,Imatinib mesylate
+81,745750,Lapatinib ditosylate
+82,747599,Nilotinib
+83,747971,Sorafenib tosylate
+84,747972,Lenalidomide
+85,747973,Ixabepilone
+86,747974,Raloxifene hydrochloride
+87,755986,Vismodegib
+88,761432,Cabazitaxel
+89,118218,2-Fluoro Ara-A
+90,256439,Idarubicin hydrochloride
+91,256942,4'-Epiadriamycin
+92,673596,7-Ethyl-10-hydroxycamptothecin
+93,719344,Anastrozole
+94,749226,Abiraterone
+95,750690,Sunitinib (free base)
+96,754143,Romidepsin
+97,754230,pralatrexate
+98,756645,Crizotinib
+99,757441,Axitinib
+100,760766,Vandetanib
+101,761431,vemurafenib
+102,707389,Eribulin mesylate
+103,737754,Pazopanib hydrochloride
+104,763371,Ruxolitinib
