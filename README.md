@@ -121,6 +121,13 @@ The cold evaluations are intended to examine model behavior under distribution s
 
 The repository contains split-generation and validation code for these evaluation regimes.
 
+| Setting          | Selected model     |  RMSE |    R² |
+| ---------------- | ------------------ | ----: | ----: |
+| RANDOM           | Ridge meta-model   | 5.888 | 0.294 |
+| COLD_COMBINATION | XGBoost meta-model | 6.568 | 0.129 |
+| COLD_CELL_LINE   | XGBoost meta-model | 6.789 | 0.323 |
+| COLD_DRUG        | Stacked model      | 4.858 | 0.351 |
+
 5. Models Investigated
 
 The OncoNova development process evaluated multiple model families rather than relying on a single algorithm.
