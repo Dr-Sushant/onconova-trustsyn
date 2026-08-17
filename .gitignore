@@ -243,3 +243,44 @@ data/processed/master/*.bak
 # macOS / Windows
 .DS_Store
 Thumbs.db
+
+# ==================================================
+# Local audit / reconstruction scratch files
+# ==================================================
+
+dmpnn_cells_*.txt
+dmpnn_doc_text.txt
+dmpnn_readme_text.txt
+master_reconstruction_hits.txt
+master_trace.txt
+model_trace.txt
+xgb_feature_trace.txt
+xgb_split_trace.txt
+xgb_trace.txt
+xgb_trace_full.txt
+
+.venv-dmpnn-cuda/
+# ==================================================
+# OncoNova / TrustSyn submission packaging
+# Keep large local audit/training artifacts out of Git
+# ==================================================
+
+.venv-dmpnn-cuda/
+extra/COMPLETE_MODEL_AUDIT/
+
+# Large raw/intermediate datasets
+data/raw/
+data/source/
+data/processed/*.csv
+
+# Large generated feature tables
+data/features/
+
+# Local audit/debug traces
+*_trace.txt
+master_*_hits.txt
+
+# Complete local development/audit archive
+extra/
+
+data/lookup/cellminer_copy_number_clean.csv

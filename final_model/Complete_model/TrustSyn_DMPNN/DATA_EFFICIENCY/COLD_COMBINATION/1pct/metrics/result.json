@@ -1,0 +1,17 @@
+{
+  "fraction": "1pct",
+  "train_rows": 2346,
+  "val_rows": 29465,
+  "test_rows": 29558,
+  "best_epoch": 2,
+  "best_validation_mae": 4.6436262130737305,
+  "test_mae": 4.545221328735352,
+  "test_rmse": 7.029334862880125,
+  "learning_rate": 0.001,
+  "hidden_dim": 128,
+  "depth": 2,
+  "dropout": 0.1,
+  "batch_size": 256,
+  "epochs_completed": 5,
+  "seed": 42
+}

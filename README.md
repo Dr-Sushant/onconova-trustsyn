@@ -1,132 +1,443 @@
-# TrustSyn
+# OncoNova — TrustSyn
 
-Clinical AI pipeline for predicting anti-cancer drug combination synergy.
+## Predicting Anti-Cancer Drug Combination Activity
 
-Built for the **Novartis Discoverathon 2026 – Challenge 1**.
-
----
-
-# Project Overview
-
-TrustSyn is a machine learning benchmark for predicting drug combination synergy using the NCI-ALMANAC dataset integrated with CellMiner molecular features.
-
-The repository provides:
-
-- Curated dataset preprocessing
-- Canonical drug mapping
-- Molecular fingerprint generation
-- Benchmark train/validation/test splits
-- Baseline XGBoost model
-- Reproducible evaluation pipeline
+**Team:** OncoNova  
+**System:** TrustSyn  
+**Challenge:** Novartis Discoverathon 2026 — Challenge 1: Predicting Drug Combination Activity
 
 ---
 
-# Dataset
+## 1. Overview
 
-Source:
+TrustSyn is the computational drug-combination prediction system developed by **OncoNova** for the Novartis Discoverathon 2026 Challenge 1.
 
-- NCI-ALMANAC
-- CellMiner
+The project is centered on the **NCI-ALMANAC** drug-combination screening dataset and integrates molecular and cell-line information to investigate prediction of anti-cancer drug combination activity.
 
-Current dataset contains:
+Over the course of development, the team built and evaluated a multi-stage computational pipeline covering:
 
-- 104 canonical drugs
-- 59 CellMiner-compatible cell lines
+- NCI-ALMANAC data curation and quality control
+- Drug and cell-line identification and canonicalization
+- CellMiner molecular feature integration
+- Drug structural and molecular feature construction
+- Additional biological feature sources, including STRING and KEGG-derived features
+- Multiple train/validation/test evaluation regimes
+- Classical machine-learning baselines
+- Deep molecular representation learning
+- Ensemble and stacking experiments
+- Model comparison and robustness analysis
+- Uncertainty and trust-oriented analysis
+- Explainability analysis
+- Final model and evaluation artifact consolidation
 
----
-
-# Benchmark Splits
-
-The repository includes four benchmark evaluation settings.
-
-| Split | Purpose |
-|--------|---------|
-| Random | Standard IID evaluation |
-| Cold Drug | Unseen drugs |
-| Cold Cell | Unseen cell lines |
-| Cold Pair | Unseen drug combinations |
-
----
-
-# Baseline Model
-
-Baseline model:
-
-- XGBoost Regressor
-
-Evaluation metrics:
-
-- RMSE
-- MAE
-- Pearson Correlation
-
-Baseline results are available in:
-
-```
-results/baseline_v1/
-```
+The repository documents the computational work performed by **OncoNova** and provides a reproducible structure for inspecting the project.
 
 ---
 
-# Repository Structure
+# 2. Central Data Foundation
 
+## NCI-ALMANAC
+
+The central experimental response dataset for TrustSyn is the **NCI-ALMANAC** drug-combination screening resource.
+
+The original source data are processed through the repository's preprocessing pipeline to separate single-drug and combination experiments and construct modeling-ready datasets.
+
+The primary data lineage is:
+
+```text
+NCI-ALMANAC
+    │
+    ▼
+ComboDrugGrowth_Nov2017.csv
+    │
+    ▼
+01_load_dataset.py
+    │
+    ├── single_drug.csv
+    │
+    └── combination_drug.csv
+             │
+             ▼
+05_prepare_split_dataset.py
+             │
+             ▼
+      modeling-ready data
+             │
+             ▼
+       feature integration
+             │
+             ▼
+          benchmarks
+             │
+             ▼
+        TrustSyn models
+
+3. Data Curation and Feature Engineering
+
+The development pipeline includes drug and cell-line curation before model training.
+
+Drug-related processing
+
+The repository contains workflows for:
+
+canonical drug identification
+NSC/drug mapping
+alias mapping
+drug-pair canonicalization
+structural representation
+molecular fingerprints
+target-related features
+drug similarity
+additional drug-pair biological features
+Cell-line and molecular features
+
+CellMiner-derived information was integrated for compatible NCI-60 cell lines.
+
+Feature development includes molecular information derived from:
+
+RNA expression
+copy-number / CNV information
+mutation information
+protein information
+drug structure
+molecular fingerprints
+target information
+drug similarity
+STRING-derived drug-pair features
+KEGG-derived drug-pair features
+
+The exact feature set varies by experiment and benchmark. The repository therefore distinguishes the broader feature-engineering work from any individual final model configuration.
+
+4. Benchmark Evaluation
+
+TrustSyn was developed and evaluated using multiple evaluation regimes designed to measure both standard predictive performance and generalization.
+
+Benchmark	Purpose
+RANDOM	Standard random/IID-style evaluation
+COLD_COMBINATION	Evaluation involving unseen drug combinations
+COLD_CELL_LINE	Generalization to unseen cell lines
+COLD_DRUG	Generalization to unseen drugs
+
+The cold evaluations are intended to examine model behavior under distribution shift rather than relying exclusively on random holdout performance.
+
+The repository contains split-generation and validation code for these evaluation regimes.
+
+5. Models Investigated
+
+The OncoNova development process evaluated multiple model families rather than relying on a single algorithm.
+
+Deep molecular model
+D-MPNN
+
+A Directed Message Passing Neural Network was developed for molecular representation learning, including the TrustSyn D-MPNN V2-C development lineage.
+
+The final D-MPNN lineage includes trained checkpoints, training/evaluation artifacts, and model documentation within the final model package.
+
+Classical machine-learning benchmarks
+
+The project also investigated:
+
+XGBoost
+LightGBM
+CatBoost
+Ridge regression / stacking components
+
+These models provide comparative benchmarks and, where applicable, contribute to ensemble experiments.
+
+The repository does not treat every model investigated during development as an independent final TrustSyn system. Instead, the model families are documented according to their role in the development and ensemble lineage.
+
+6. Ensemble and Stacking
+
+TrustSyn development included ensemble experiments combining predictions from multiple model families.
+
+The final model lineage contains dedicated artifacts for:
+
+base-model results
+stacking tables
+meta-model predictions
+ensemble results
+final frozen evaluation results
+
+The complete final lineage is retained in the local:
+extra/COMPLETE_MODEL_AUDIT/Complete_model/
+package.
+
+This package contains the consolidated final-model evidence across the D-MPNN, CatBoost, stacking, trust-layer, and explainability components.
+
+The public GitHub repository is intentionally kept smaller than this complete local audit package.
+
+7. Evaluation Metrics
+
+The project evaluates both numerical prediction quality and ranking behavior.
+
+Regression metrics
+MAE
+RMSE
+Pearson correlation
+Spearman correlation
+Ranking metrics
+
+Where applicable, the benchmark includes:
+
+Precision@50
+Precision@100
+Recall@100
+nDCG@100
+Enrichment@100
+
+Additional analyses include:
+
+generalization gaps
+data-efficiency analysis
+baseline comparisons
+robustness comparisons
+model agreement
+uncertainty analysis
+
+Reported metrics should always be interpreted together with their corresponding evaluation regime.
+
+8. Trust Layer
+
+A major objective of the TrustSyn development was to move beyond a single predicted score and investigate whether predictions can be accompanied by information about their reliability.
+
+The final model lineage contains work covering:
+
+ensemble uncertainty
+conformal prediction
+novelty assessment
+final trust scoring
+calibration / reliability-oriented analysis
+explainability
+
+The objective is not to imply that a prediction is clinically validated.
+
+Instead, the trust layer is intended to help identify predictions that may require greater scrutiny because of uncertainty, novelty, or limited similarity to the model's observed training domain.
+
+9. Explainability
+
+The final model package contains explainability artifacts for the major evaluation regimes, including SHAP-based analyses.
+
+These analyses are intended to help inspect:
+
+feature contributions
+model behavior
+differences between evaluation settings
+potential sources of prediction variation
+
+Explainability outputs are treated as model-analysis tools rather than proof of biological mechanism.
+
+10. Repository Structure
+
+The repository is organized around the development and reproducibility workflow:
+OncoNova / TrustSyn
+│
+├── data/
+│   ├── raw/
+│   ├── source/
+│   ├── lookup/
+│   ├── processed/
+│   └── features/
+│
+├── src/
+│   ├── preprocessing/
+│   ├── splits/
+│   ├── models/
+│   ├── validation/
+│   ├── utils/
+│   └── experiments/
+│
+├── results/
+│   └── final/
+│
+├── reports/
+│
+├── notebooks/
+│
+├── configs/
+│
+├── checkpoints/
+│
+├── docs/
+│
+└── extra/
+    └── COMPLETE_MODEL_AUDIT/
+        └── Complete_model/
+The extra/COMPLETE_MODEL_AUDIT/Complete_model/ package is retained as the local consolidated final-model lineage and evidence archive.
+
+11. Reproducibility
+
+The repository contains source code for the major stages of the computational workflow, including:
+
+Dataset loading
+Data exploration
+Drug and cell-line extraction
+Dataset preparation
+Drug feature integration
+Drug mapping and preprocessing
+Benchmark split generation
+Model training
+Feature-based baselines
+Benchmark evaluation
+Feature validation
+Leakage-oriented checks
+Model comparison
+
+Large source and intermediate datasets are not duplicated indiscriminately into the Git repository.
+
+Instead, the repository preserves the code and documented data lineage required to understand how the modeling datasets were constructed.
+
+12. Scientific Scope
+
+TrustSyn is a computational research and prioritization system.
+
+Its predictions are intended to support prioritization of candidate drug combinations for further experimental investigation.
+
+Predictions do not establish:
+
+biological mechanism
+clinical efficacy
+therapeutic safety
+clinical benefit
+
+Experimental and clinical validation remain necessary.
+
+13. Scientific Integrity
+
+The project distinguishes measured computational results from interpretation.
+
+The evaluation framework is designed to expose:
+
+performance across multiple benchmark regimes
+behavior under distribution shift
+baseline comparisons
+ranking performance
+data-efficiency behavior
+robustness
+uncertainty
+novelty
+model limitations
+
+The strongest evaluation result should not be interpreted in isolation from weaker or more difficult generalization settings.
+
+14. Final Model Lineage
+
+The final consolidated TrustSyn evidence package contains the major components developed during the project:
+NCI-ALMANAC
+     │
+     ▼
+Data curation
+     │
+     ▼
+Molecular / cell-line feature integration
+     │
+     ▼
+Multiple predictive models
+     │
+     ├── D-MPNN
+     ├── XGBoost
+     ├── LightGBM
+     ├── CatBoost
+     └── Ridge / stacking components
+     │
+     ▼
+Ensemble / stacking analysis
+     │
+     ▼
+Final TrustSyn results
+     │
+     ├── uncertainty
+     ├── conformal prediction
+     ├── novelty
+     ├── trust scoring
+     └── explainability
+
+The final consolidated artifacts are maintained under:
+
+extra/COMPLETE_MODEL_AUDIT/Complete_model/
+
+This separation allows the repository to remain practical while preserving the complete local model-development and final-evaluation lineage.
+
+15. Limitations
+
+Important limitations include:
+
+NCI-ALMANAC is an experimental screening resource and does not directly represent clinical treatment outcomes.
+Molecular feature availability differs across drugs and cell lines.
+Cold-start benchmarks represent specific forms of distribution shift and do not encompass every possible deployment scenario.
+Model performance can vary substantially across evaluation regimes.
+Computational uncertainty does not equal biological or clinical uncertainty.
+Novelty detection does not establish whether a novel prediction is biologically correct.
+Model explanations should not be interpreted as causal biological mechanisms.
+Final predictions require experimental validation before therapeutic conclusions can be drawn.
+16. Team
+
+OncoNova
+
+System
+
+TrustSyn
+
+Challenge
+
+Novartis Discoverathon 2026 — Challenge 1: Predicting Drug Combination Activity
+
+17. AI Assistance Disclosure
+
+ChatGPT (OpenAI) was used as an AI-assisted development and documentation tool during the project, including for code drafting and debugging support, data-analysis workflow assistance, technical writing, documentation, presentation development, and critical review of implementation logic.
+
+The team remained responsible for:
+
+scientific reasoning
+methodological decisions
+model development
+data preparation
+evaluation
+interpretation of results
+verification of reported outputs
+final submission decisions
+
+AI-generated suggestions were reviewed against project artifacts before inclusion.
+
+OncoNova
+
+TrustSyn — computational prediction and trust-oriented analysis of anti-cancer drug combination activity.# TrustSyn Computational Lineage
+
+```text
+ONCONOVA
+    �
+TRUSTSYN SYSTEM
+    �
+NCI-ALMANAC
+    �
+    +-- Data curation
+    +-- Molecular data
+    �     +-- CellMiner
+    �     +-- KEGG
+    �     +-- STRING
+    �     +-- Structure
+    �     +-- Targets
+    �
+    +-- RANDOM
+    +-- COLD DRUG
+    +-- COLD CELL LINE
+    +-- COLD COMBINATION
+              �
+              ?
+       MODEL BENCHMARKS
+              �
+       +-- D-MPNN
+       +-- XGBoost
+       +-- LightGBM
+       +-- CatBoost
+       +-- Ridge
+              �
+           STACKING
+              �
+        FINAL TRUSTSYN
+              �
+       +-- Frozen results
+       +-- Trust layer
+       +-- Explainability
 ```
-data/
-src/
-splits/
-results/
-reports/
-models/
-configs/
-```
 
----
-
-# Running the Pipeline
-
-### Preprocessing
-
-```
-python src/preprocessing/build_drug_features.py
-```
-
-### Generate Splits
-
-```
-python src/splits/07_create_random_split.py
-python src/splits/08_create_cold_drug_split.py
-python src/splits/09_create_cold_cell_split.py
-python src/splits/10_create_cold_pair_split.py
-```
-
-### Train Baseline
-
-```
-python src/models/08_train_baseline.py --split random
-```
-
----
-
-# Team Workflow
-
-The baseline implementation inside
-
-```
-src/models/
-```
-
-should remain unchanged.
-
-New experiments should be implemented inside
-
-```
-src/experiments/
-```
-
-Each experiment should be developed in a separate branch and merged through Pull Requests.
-
----
-
-# License
-
-MIT License
+The computational workflow is organized around NCI-ALMANAC as the primary response dataset, followed by data curation, molecular feature integration, distribution-aware evaluation, model benchmarking, ensemble stacking, and downstream trust-oriented analysis.

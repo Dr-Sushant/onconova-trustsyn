@@ -1,0 +1,15 @@
+{
+  "split": "RANDOM",
+  "best_epoch": 9,
+  "best_validation_mae": 4.072693347930908,
+  "epochs_completed": 10,
+  "learning_rate": 0.001,
+  "hidden_dim": 128,
+  "depth": 2,
+  "dropout": 0.1,
+  "batch_size": 256,
+  "seed": 42,
+  "node_dim": 7,
+  "edge_dim": 6,
+  "cell_dim": 200
+}

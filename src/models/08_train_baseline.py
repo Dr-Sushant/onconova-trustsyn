@@ -37,7 +37,7 @@ VERSION = args.version
 TRAIN = PROJECT_ROOT / "splits" / SPLIT / "train.csv"
 VALID = PROJECT_ROOT / "splits" / SPLIT / "valid.csv"
 
-DRUG = PROJECT_ROOT / "data" / "lookup" / "drug_features_final.csv"
+DRUG = PROJECT_ROOT / "data" / "features" / "drug_morgan_fingerprints.csv"
 
 RESULTS_DIR = PROJECT_ROOT / "results" / VERSION / SPLIT
 
