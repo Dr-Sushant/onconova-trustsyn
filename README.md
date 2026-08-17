@@ -32,6 +32,8 @@ Over the course of development, the team built and evaluated a multi-stage compu
 
 The repository documents the computational work performed by **OncoNova** and provides a reproducible structure for inspecting the project.
 
+<img width="1620" height="810" alt="final_stack_rmse" src="https://github.com/user-attachments/assets/0c5ffe18-18b6-4fcb-845c-c973c246f0a7" />
+
 ---
 
 # 2. Central Data Foundation
@@ -128,6 +130,8 @@ The repository contains split-generation and validation code for these evaluatio
 | COLD_CELL_LINE   | XGBoost meta-model | 6.789 | 0.323 |
 | COLD_DRUG        | Stacked model      | 4.858 | 0.351 |
 
+<img width="1620" height="810" alt="ranking" src="https://github.com/user-attachments/assets/a1b7ce57-558d-4da3-8fe1-c1e019c89ea7" />
+
 5. Models Investigated
 
 The OncoNova development process evaluated multiple model families rather than relying on a single algorithm.
@@ -219,6 +223,8 @@ The objective is not to imply that a prediction is clinically validated.
 
 Instead, the trust layer is intended to help identify predictions that may require greater scrutiny because of uncertainty, novelty, or limited similarity to the model's observed training domain.
 
+<img width="1620" height="756" alt="coverage" src="https://github.com/user-attachments/assets/4800b544-1202-4f60-ae0e-c66796f03170" />
+
 9. Explainability
 
 The final model package contains explainability artifacts for the major evaluation regimes, including SHAP-based analyses.
@@ -231,6 +237,8 @@ differences between evaluation settings
 potential sources of prediction variation
 
 Explainability outputs are treated as model-analysis tools rather than proof of biological mechanism.
+
+<img width="1620" height="900" alt="shap_top10" src="https://github.com/user-attachments/assets/a116d1c5-c27a-4106-a703-e21ed6d83562" />
 
 10. Repository Structure
 
