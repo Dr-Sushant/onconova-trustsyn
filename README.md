@@ -1,10 +1,10 @@
-# OncoNova — TrustSyn
+# OncoNova - TrustSyn
 
 ## Predicting Anti-Cancer Drug Combination Activity
 
 **Team:** OncoNova  
 **System:** TrustSyn  
-**Challenge:** Novartis Discoverathon 2026 — Challenge 1: Predicting Drug Combination Activity
+**Challenge:** Novartis Discoverathon 2026 - Challenge 1: Predicting Drug Combination Activity
 
 ---
 
@@ -44,33 +44,32 @@ The original source data are processed through the repository's preprocessing pi
 
 The primary data lineage is:
 
-```text
 NCI-ALMANAC
-    │
-    ▼
+    |
+    v
 ComboDrugGrowth_Nov2017.csv
-    │
-    ▼
+    |
+    v
 01_load_dataset.py
-    │
-    ├── single_drug.csv
-    │
-    └── combination_drug.csv
-             │
-             ▼
+    |
+    +-- single_drug.csv
+    |
+    +-- combination_drug.csv
+            |
+            v
 05_prepare_split_dataset.py
-             │
-             ▼
+            |
+            v
       modeling-ready data
-             │
-             ▼
-       feature integration
-             │
-             ▼
-          benchmarks
-             │
-             ▼
-        TrustSyn models
+            |
+            v
+      feature integration
+            |
+            v
+        benchmarks
+            |
+            v
+       TrustSyn models
 
 3. Data Curation and Feature Engineering
 
@@ -159,7 +158,9 @@ ensemble results
 final frozen evaluation results
 
 The complete final lineage is retained in the local:
+
 extra/COMPLETE_MODEL_AUDIT/Complete_model/
+
 package.
 
 This package contains the consolidated final-model evidence across the D-MPNN, CatBoost, stacking, trust-layer, and explainability components.
@@ -184,9 +185,7 @@ Precision@100
 Recall@100
 nDCG@100
 Enrichment@100
-
-Additional analyses include:
-
+Additional analyses
 generalization gaps
 data-efficiency analysis
 baseline comparisons
@@ -229,39 +228,41 @@ Explainability outputs are treated as model-analysis tools rather than proof of 
 10. Repository Structure
 
 The repository is organized around the development and reproducibility workflow:
+
 OncoNova / TrustSyn
-│
-├── data/
-│   ├── raw/
-│   ├── source/
-│   ├── lookup/
-│   ├── processed/
-│   └── features/
-│
-├── src/
-│   ├── preprocessing/
-│   ├── splits/
-│   ├── models/
-│   ├── validation/
-│   ├── utils/
-│   └── experiments/
-│
-├── results/
-│   └── final/
-│
-├── reports/
-│
-├── notebooks/
-│
-├── configs/
-│
-├── checkpoints/
-│
-├── docs/
-│
-└── extra/
-    └── COMPLETE_MODEL_AUDIT/
-        └── Complete_model/
+|
++-- data/
+|   +-- raw/
+|   +-- source/
+|   +-- lookup/
+|   +-- processed/
+|   +-- features/
+|
++-- src/
+|   +-- preprocessing/
+|   +-- splits/
+|   +-- models/
+|   +-- validation/
+|   +-- utils/
+|   +-- experiments/
+|
++-- results/
+|   +-- final/
+|
++-- reports/
+|
++-- notebooks/
+|
++-- configs/
+|
++-- checkpoints/
+|
++-- docs/
+|
++-- extra/
+    +-- COMPLETE_MODEL_AUDIT/
+        +-- Complete_model/
+
 The extra/COMPLETE_MODEL_AUDIT/Complete_model/ package is retained as the local consolidated final-model lineage and evidence archive.
 
 11. Reproducibility
@@ -322,34 +323,35 @@ The strongest evaluation result should not be interpreted in isolation from weak
 14. Final Model Lineage
 
 The final consolidated TrustSyn evidence package contains the major components developed during the project:
+
 NCI-ALMANAC
-     │
-     ▼
+    |
+    v
 Data curation
-     │
-     ▼
+    |
+    v
 Molecular / cell-line feature integration
-     │
-     ▼
+    |
+    v
 Multiple predictive models
-     │
-     ├── D-MPNN
-     ├── XGBoost
-     ├── LightGBM
-     ├── CatBoost
-     └── Ridge / stacking components
-     │
-     ▼
+    |
+    +-- D-MPNN
+    +-- XGBoost
+    +-- LightGBM
+    +-- CatBoost
+    +-- Ridge / stacking components
+    |
+    v
 Ensemble / stacking analysis
-     │
-     ▼
+    |
+    v
 Final TrustSyn results
-     │
-     ├── uncertainty
-     ├── conformal prediction
-     ├── novelty
-     ├── trust scoring
-     └── explainability
+    |
+    +-- uncertainty
+    +-- conformal prediction
+    +-- novelty
+    +-- trust scoring
+    +-- explainability
 
 The final consolidated artifacts are maintained under:
 
@@ -379,7 +381,7 @@ TrustSyn
 
 Challenge
 
-Novartis Discoverathon 2026 — Challenge 1: Predicting Drug Combination Activity
+Novartis Discoverathon 2026 - Challenge 1: Predicting Drug Combination Activity
 
 17. AI Assistance Disclosure
 
@@ -400,44 +402,4 @@ AI-generated suggestions were reviewed against project artifacts before inclusio
 
 OncoNova
 
-TrustSyn — computational prediction and trust-oriented analysis of anti-cancer drug combination activity.# TrustSyn Computational Lineage
-
-```text
-ONCONOVA
-    �
-TRUSTSYN SYSTEM
-    �
-NCI-ALMANAC
-    �
-    +-- Data curation
-    +-- Molecular data
-    �     +-- CellMiner
-    �     +-- KEGG
-    �     +-- STRING
-    �     +-- Structure
-    �     +-- Targets
-    �
-    +-- RANDOM
-    +-- COLD DRUG
-    +-- COLD CELL LINE
-    +-- COLD COMBINATION
-              �
-              ?
-       MODEL BENCHMARKS
-              �
-       +-- D-MPNN
-       +-- XGBoost
-       +-- LightGBM
-       +-- CatBoost
-       +-- Ridge
-              �
-           STACKING
-              �
-        FINAL TRUSTSYN
-              �
-       +-- Frozen results
-       +-- Trust layer
-       +-- Explainability
-```
-
-The computational workflow is organized around NCI-ALMANAC as the primary response dataset, followed by data curation, molecular feature integration, distribution-aware evaluation, model benchmarking, ensemble stacking, and downstream trust-oriented analysis.
+TrustSyn - computational prediction and trust-oriented analysis of anti-cancer drug combination activity.
