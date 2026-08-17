@@ -159,7 +159,7 @@ final frozen evaluation results
 
 The complete final lineage is retained in the local:
 
-extra/COMPLETE_MODEL_AUDIT/Complete_model/
+final_model/Complete_model
 
 package.
 
@@ -263,7 +263,7 @@ OncoNova / TrustSyn
     +-- COMPLETE_MODEL_AUDIT/
         +-- Complete_model/
 
-The extra/COMPLETE_MODEL_AUDIT/Complete_model/ package is retained as the local consolidated final-model lineage and evidence archive.
+The final_model/Complete_model package is retained as the local consolidated final-model lineage and evidence archive.
 
 11. Reproducibility
 
@@ -355,7 +355,7 @@ Final TrustSyn results
 
 The final consolidated artifacts are maintained under:
 
-extra/COMPLETE_MODEL_AUDIT/Complete_model/
+final_model/Complete_model
 
 This separation allows the repository to remain practical while preserving the complete local model-development and final-evaluation lineage.
 
