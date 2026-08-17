@@ -4,7 +4,7 @@
 
 **Team:** OncoNova  
 **System:** TrustSyn  
-**Challenge:** Novartis Discoverathon 2026 - Challenge 1: Predicting Drug Combination Activity.
+**Challenge:** Novartis Discoverathon 2026 - Challenge 1: Predicting Drug Combination Activity
 
 ---
 
