@@ -73,7 +73,7 @@ ComboDrugGrowth_Nov2017.csv
             v
        TrustSyn models
 
-3. Data Curation and Feature Engineering
+# 3. Data Curation and Feature Engineering
 
 The development pipeline includes drug and cell-line curation before model training.
 
@@ -109,7 +109,7 @@ KEGG-derived drug-pair features
 
 The exact feature set varies by experiment and benchmark. The repository therefore distinguishes the broader feature-engineering work from any individual final model configuration.
 
-4. Benchmark Evaluation
+# 4. Benchmark Evaluation
 
 TrustSyn was developed and evaluated using multiple evaluation regimes designed to measure both standard predictive performance and generalization.
 
@@ -132,7 +132,7 @@ The repository contains split-generation and validation code for these evaluatio
 
 <img width="1620" height="810" alt="ranking" src="https://github.com/user-attachments/assets/a1b7ce57-558d-4da3-8fe1-c1e019c89ea7" />
 
-5. Models Investigated
+# 5. Models Investigated
 
 The OncoNova development process evaluated multiple model families rather than relying on a single algorithm.
 
@@ -156,7 +156,7 @@ These models provide comparative benchmarks and, where applicable, contribute to
 
 The repository does not treat every model investigated during development as an independent final TrustSyn system. Instead, the model families are documented according to their role in the development and ensemble lineage.
 
-6. Ensemble and Stacking
+# 6. Ensemble and Stacking
 
 TrustSyn development included ensemble experiments combining predictions from multiple model families.
 
@@ -178,7 +178,7 @@ This package contains the consolidated final-model evidence across the D-MPNN, C
 
 The public GitHub repository is intentionally kept smaller than this complete local audit package.
 
-7. Evaluation Metrics
+# 7. Evaluation Metrics
 
 The project evaluates both numerical prediction quality and ranking behavior.
 
@@ -206,7 +206,7 @@ uncertainty analysis
 
 Reported metrics should always be interpreted together with their corresponding evaluation regime.
 
-8. Trust Layer
+# 8. Trust Layer
 
 A major objective of the TrustSyn development was to move beyond a single predicted score and investigate whether predictions can be accompanied by information about their reliability.
 
@@ -225,7 +225,7 @@ Instead, the trust layer is intended to help identify predictions that may requi
 
 <img width="1620" height="756" alt="coverage" src="https://github.com/user-attachments/assets/4800b544-1202-4f60-ae0e-c66796f03170" />
 
-9. Explainability
+# 9. Explainability
 
 The final model package contains explainability artifacts for the major evaluation regimes, including SHAP-based analyses.
 
@@ -240,7 +240,7 @@ Explainability outputs are treated as model-analysis tools rather than proof of 
 
 <img width="1620" height="900" alt="shap_top10" src="https://github.com/user-attachments/assets/a116d1c5-c27a-4106-a703-e21ed6d83562" />
 
-10. Repository Structure
+# 10. Repository Structure
 
 The repository is organized around the development and reproducibility workflow:
 
@@ -280,7 +280,7 @@ OncoNova / TrustSyn
 
 The final_model/Complete_model package is retained as the local consolidated final-model lineage and evidence archive.
 
-11. Reproducibility
+# 11. Reproducibility
 
 The repository contains source code for the major stages of the computational workflow, including:
 
@@ -302,7 +302,7 @@ Large source and intermediate datasets are not duplicated indiscriminately into 
 
 Instead, the repository preserves the code and documented data lineage required to understand how the modeling datasets were constructed.
 
-12. Scientific Scope
+# 12. Scientific Scope
 
 TrustSyn is a computational research and prioritization system.
 
@@ -317,7 +317,7 @@ clinical benefit
 
 Experimental and clinical validation remain necessary.
 
-13. Scientific Integrity
+# 13. Scientific Integrity
 
 The project distinguishes measured computational results from interpretation.
 
@@ -335,7 +335,7 @@ model limitations
 
 The strongest evaluation result should not be interpreted in isolation from weaker or more difficult generalization settings.
 
-14. Final Model Lineage
+# 14. Final Model Lineage
 
 The final consolidated TrustSyn evidence package contains the major components developed during the project:
 
@@ -374,7 +374,7 @@ final_model/Complete_model
 
 This separation allows the repository to remain practical while preserving the complete local model-development and final-evaluation lineage.
 
-15. Limitations
+# 15. Limitations
 
 Important limitations include:
 
@@ -386,9 +386,8 @@ Computational uncertainty does not equal biological or clinical uncertainty.
 Novelty detection does not establish whether a novel prediction is biologically correct.
 Model explanations should not be interpreted as causal biological mechanisms.
 Final predictions require experimental validation before therapeutic conclusions can be drawn.
-16. Team
 
-OncoNova
+# 16. Team - OncoNova
 
 System
 
@@ -398,7 +397,7 @@ Challenge
 
 Novartis Discoverathon 2026 - Challenge 1: Predicting Drug Combination Activity
 
-17. AI Assistance Disclosure
+# 17. AI Assistance Disclosure
 
 ChatGPT (OpenAI) was used as an AI-assisted development and documentation tool during the project, including for code drafting and debugging support, data-analysis workflow assistance, technical writing, documentation, presentation development, and critical review of implementation logic.
 
